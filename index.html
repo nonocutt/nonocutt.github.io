@@ -1,7 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<header>
+    <h1>Noah Wang</h1>
+    <p>Composer | Producer | Programmer | Pianist | Synthesist</p>
+</header>
+
+<div class="container">
+    <div class="sidebar">
+        <button class="mobile-menu-btn">Menu</button>
+        <ul>
+            <li class="tab-link active" data-tab="home">Home</li>
+            <li class="tab-link" data-tab="bio">Bio</li>
+            <li class="tab-link" data-tab="music">Music</li>
+            <li class="tab-link" data-tab="github">GitHub</li>
+            <li class="tab-link" data-tab="leadsheet">Lead Sheet</li>
+            <li class="tab-link" data-tab="transcription">Transcription</li>
+            <li class="tab-link" data-tab="contact">Contact</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <!-- Content will be loaded here -->
+        <div id="content-container"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Noah Wang. All rights reserved.</p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>

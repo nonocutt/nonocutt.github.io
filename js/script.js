@@ -1,64 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const contentContainer = document.getElementById('content-container');
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const sidebarMenu = document.querySelector('.sidebar ul');
+// Wait for the DOM to be fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
 
-    // Mobile menu toggle
-    mobileMenuBtn.addEventListener('click', function() {
-        sidebarMenu.classList.toggle('open');
-        mobileMenuBtn.classList.toggle('open');
-    });
+    // Get all navigation links and all page sections
+    const navLinks = document.querySelectorAll('a.nav-link');
+    const pages = document.querySelectorAll('section.page');
 
-    // Load the default tab (Home)
-    loadContent('home');
+    // Add a click event listener to each navigation link
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            // Stop the link from its default behavior (like jumping to '#')
+            event.preventDefault();
 
-    // Add click event listeners to all tab links
-    tabLinks.forEach(function(tabLink) {
-        tabLink.addEventListener('click', function() {
-            // Remove active class from all tabs
-            document.querySelectorAll('.tab-link').forEach(function(link) {
-                link.classList.remove('active');
+            // Get the 'data-target' value (e.g., "about", "music-projects")
+            const targetId = link.dataset.target;
+
+            // 1. Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
             });
 
-            // Add active class to clicked tab
-            this.classList.add('active');
+            // 2. Deactivate all nav links
+            navLinks.forEach(navLink => {
+                navLink.classList.remove('active');
+            });
 
-            // Fade out current content first
-            contentContainer.style.opacity = '0';
-
-            // Wait for fade out, then load new content
-            setTimeout(() => {
-                // Load the corresponding content
-                const tabId = this.getAttribute('data-tab');
-                loadContent(tabId);
-            }, 250); // Half of your animation time
-
-            // Close mobile menu after selection
-            if (window.innerWidth <= 768) {
-                sidebarMenu.classList.remove('open');
-                mobileMenuBtn.classList.remove('open');
+            // 3. Show the target page
+            const targetPage = document.getElementById(targetId);
+            if (targetPage) {
+                targetPage.classList.add('active');
             }
+
+            // 4. Activate the clicked nav link
+            link.classList.add('active');
         });
     });
-
-    // Function to load content from separate HTML files
-    function loadContent(tabId) {
-        fetch(`pages/${tabId}.html`)
-            .then(response => response.text())
-            .then(html => {
-                contentContainer.innerHTML = html;
-                contentContainer.className = 'tab-content';
-
-                // Trigger fade in
-                setTimeout(() => {
-                    contentContainer.style.opacity = '1';
-                }, 50); // Small delay to ensure DOM update
-            })
-            .catch(error => {
-                console.error('Error loading content:', error);
-                contentContainer.innerHTML = '<p>Error loading content. Please try again.</p>';
-                contentContainer.style.opacity = '1';
-            });
-    }
 });

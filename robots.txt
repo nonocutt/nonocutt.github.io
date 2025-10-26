@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://nonocutt.github.io/sitemap.xml

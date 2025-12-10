@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noella Wang - SonaSense</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Noella Wang - SonaSense</h1>
+</header>
+<main>
+    <section id="project" class="page active">
+        <article class="project-entry">
+            <div class="project-left">
+                <iframe width="560" height="315"
+                        src="https://www.youtube-nocookie.com/embed/Ov4IGvuNj7Q?si=nHzU9D6FoeaNhFrz"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+                <p style="font-style: italic; font-size: 0.85rem; color: #777; margin-top: 6px;">
+                    Demo video of the SonaSense gesture-controlled wearable device.
+                </p>
+                <hr>
+                <br>
+                <img src="/images/SonaSense.png" alt="Photo of SonaSense Glove">
+                <p style="font-style: italic; font-size: 0.85rem; color: #777; margin-top: 6px;">
+                    Photo of the SonaSense sensor glove prototype.
+                </p>
+            </div>
+            <div class="project-right">
+                <div class="project-header">
+                    <h4>Project Details:</h4>
+                    <p><strong>Date:</strong> December 2025</p>
+                    <p><strong>Role:</strong> Independent Developer (Arduino, embedded C/C++, physical computing, hardware assembly & soldering)</p>
+                    <p><strong>Repo:</strong> <a href="https://github.com/nonocutt/SonaSense" target="_blank">View on GitHub</a></p>
+                    <p><strong>Schematic Diagram:</strong> <a href="https://raw.githubusercontent.com/nonocutt/SonaSense/main/kicad/SonaSense.svg" target="_blank">View SVG</a></p>
+                </div>
+                <div class="project-description">
+                    <p>
+                        <em>SonaSense</em> is a gesture-controlled musical glove that transforms hand movement into expressive performance data. It integrates an <strong>Arduino Nano</strong>, <strong>Adafruit ICM-20948 IMU</strong>, <strong>ZD10-100</strong> flex sensor, <strong>FSR402</strong> force sensor, and an <strong>LDR</strong>, all mounted on a compact protoboard attached to a glove.
+                    </p>
+                    <p>
+                        I created a full wiring layout and hardware schematic in <strong>KiCad</strong>, documenting the sensor configuration and signal connections used in the system.
+                    </p>
+                    <p>
+                        The Arduino firmware reads all sensor and motion data — light, turning tilt, finger bending, and pressure — over I²C and streams it over serial.
+                    </p>
+                    <p>
+                        I developed the entire workflow from hardware assembly and soldering to microcontroller programming and gesture-mapping design, resulting in a durable, performance-ready glove instrument.
+                    </p>
+                    <p>
+                        The demo video features an original piece performed using the glove, with a simple example patch translating the serial data into musical responses.
+                    </p>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+
+
+</body>
+</html>

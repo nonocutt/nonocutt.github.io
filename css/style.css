@@ -201,4 +201,14 @@ main {
         border-radius: 8px;
         margin-bottom: 2.5rem; /* Adds space before the first project */
     }
+
+    .caption {
+        font-size: 0.85rem;
+        color: #777;
+        margin-top: 6px;
+        text-align: left; /* or center, depending on your layout */
+    }
+    .media-block {
+        margin-bottom: 20px;
+    }
 }
